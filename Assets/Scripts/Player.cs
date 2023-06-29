@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    public float MoveSpeed;
-
-
     private void FixedUpdate() {
-        float moveInputHorizontal = Input.GetAxisRaw("Horizontal");
-        MovePosition(moveInputHorizontal * MoveSpeed * Time.fixedDeltaTime);
+        MovementPlayer();
+        JumpPlayer();
+    }
+
+    private void MovementPlayer() {
+        float moveHorizontal = Input.GetAxis("Horizontal");
+
+        Vector2 movement = new Vector2(moveHorizontal, 0.0f);
+        MovementEntity(movement);
+    }
+
+    private void JumpPlayer() {
+        if (Input.GetAxis("Jump") > 0) {
+            if (_isGrounded) {
+                JumpEntity();
+            }
+        }
     }
 }
