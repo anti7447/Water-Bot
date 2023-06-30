@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Bootstrap : MonoBehaviour
 {
-    [SerializeField] Entity _player;
+    [SerializeField] private Entity _playerEntity;
+    [SerializeField] private PlayerController _playerController;
 
     private void Awake() {
-        _player.Initialize();
+        _playerEntity.Initialize();
+        _playerController.Initialize();
     }
 }
