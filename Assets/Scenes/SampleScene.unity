@@ -615,6 +615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1893569816}
   - component: {fileID: 1893569815}
+  - component: {fileID: 1893569823}
   - component: {fileID: 1893569819}
   - component: {fileID: 1893569820}
   - component: {fileID: 1893569821}
@@ -707,6 +708,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entity: {fileID: 1893569822}
+  _animator: {fileID: 1893569823}
+  _spriteRenderer: {fileID: 1893569815}
 --- !u!50 &1893569819
 Rigidbody2D:
   serializedVersion: 4
@@ -830,6 +833,27 @@ MonoBehaviour:
   _speed: 20
   BoostRatio: 0.1
   _jumpForce: 15
+--- !u!95 &1893569823
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893569813}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a4b744b26c6759cb4b037624281ff9f6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2091836387
 GameObject:
   m_ObjectHideFlags: 0

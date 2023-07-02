@@ -9,18 +9,6 @@ public class Entity : MonoBehaviour
     [Header("Objects")]
     [SerializeField] private Rigidbody2D _rigidbody2D;
     public bool _isGrounded { get; private set; }
-    private float _boost = 1;
-    public float Boost {
-        get { return _boost; }
-        set {
-            if (value < 0)
-                _boost = 0;
-            if (value > 1)
-                _boost = 1;
-            else
-                _boost = value;
-        }
-    }
 
     [Header("Numeric Fields")]
     [SerializeField, Range(-50, 50)] private float _speed = 20f;
@@ -35,7 +23,6 @@ public class Entity : MonoBehaviour
                 _speed = value;
         }
     }
-    [SerializeField, Range(0, 1)] private float BoostRatio = 0.1f;
     [SerializeField, Range(0, 100)] private float _jumpForce = 15f;
     public float JumpForce {
         get {
