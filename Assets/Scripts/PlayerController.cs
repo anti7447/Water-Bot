@@ -11,16 +11,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
     private float _speedRatio = 0;
-    private bool _faceRight = true;
+    // private bool _faceRight = true;
+
 
     public void Initialize() {
-        
+
     }
 
     private void FixedUpdate() {
         MovementPlayer();
         JumpPlayer();
-        FlipPlayer();
+        // CheckFace();
+        // ChangeFlip();
     }
 
     private void MovementPlayer() {
@@ -36,18 +38,5 @@ public class PlayerController : MonoBehaviour
                 _entity.JumpEntity();
             }
         }
-    }
-
-    private void FlipPlayer() {
-        _spriteRenderer.flipX = CheckDirection(_speedRatio);
-    }
-
-    private bool CheckDirection(float direction) {
-        if (direction > 0.1)
-            return false;
-        else if (direction < -0.1)
-            return true;
-
-        return _spriteRenderer.flipX;
     }
 }

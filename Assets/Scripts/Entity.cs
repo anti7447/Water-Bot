@@ -11,6 +11,8 @@ public class Entity : MonoBehaviour
     public bool _isGrounded { get; private set; }
 
     [Header("Numeric Fields")]
+    [SerializeField] private float _health = 100;
+
     [SerializeField, Range(-50, 50)] private float _speed = 20f;
     public float Speed {
         get { return _speed; }
@@ -52,6 +54,16 @@ public class Entity : MonoBehaviour
 
         // movement
         _rigidbody2D.velocity = movement;
+    }
+
+    public void Damage(float damage) {
+        if (damage < 0)
+            damage = 0;
+        
+        _health -= damage;
+
+        if (_health < 0)
+            Destroy(gameObject);
     }
 
     public void JumpEntity() {
