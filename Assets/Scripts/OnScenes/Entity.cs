@@ -8,10 +8,14 @@ public class Entity : MonoBehaviour
     // --------------- Fields -------------- //
     [Header("Objects")]
     [SerializeField] private Rigidbody2D _rigidbody2D;
-    public bool _isGrounded { get; private set; }
+    public bool IsGrounded { get; private set; }
 
     [Header("Numeric Fields")]
     [SerializeField] private float _health = 100;
+    [SerializeField] private float _damageForce = 10;
+    public float DamageForce {
+        get { return _damageForce; }
+    }
 
     [SerializeField, Range(-50, 50)] private float _speed = 20f;
     public float Speed {
@@ -42,7 +46,7 @@ public class Entity : MonoBehaviour
     
     // ------------------- Methods -------------------------- //
     public void Initialize() {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
+
     }
 
     public void MovementEntity(float speedRatio) {
@@ -70,19 +74,19 @@ public class Entity : MonoBehaviour
         _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private void OnTriggerEnter2D(Collider2D collision) {
         IsGroundedUpate(collision, true);
     }
 
-    private void OnCollisionExit2D(Collision2D collision) {
+    private void OnTriggerExit2D(Collider2D collision) {
         IsGroundedUpate(collision, false);
     }
 
-    private void IsGroundedUpate(Collision2D collision, bool value)
+    private void IsGroundedUpate(Collider2D collision, bool value)
     {
         if (collision.gameObject.tag == ("Ground"))
         {
-            _isGrounded = value;
+            IsGrounded = value;
         }
     }
 }

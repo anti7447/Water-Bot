@@ -14,8 +14,8 @@ public class PlayerController : MonoBehaviour
     // private bool _faceRight = true;
 
 
-    public void Initialize() {
-
+    public GameObject Initialize() {
+        return gameObject;
     }
 
     private void FixedUpdate() {
@@ -32,11 +32,15 @@ public class PlayerController : MonoBehaviour
     }
 
     private void JumpPlayer() {
-        _animator.SetBool("Is Ground", _entity._isGrounded);
+        _animator.SetBool("Is Ground", _entity.IsGrounded);
         if (Input.GetAxis("Jump") > 0) {
-            if (_entity._isGrounded) {
+            if (_entity.IsGrounded) {
                 _entity.JumpEntity();
             }
         }
+    }
+
+    private void OnDestroy() {
+        EventManager.OnPlayerDied();
     }
 }

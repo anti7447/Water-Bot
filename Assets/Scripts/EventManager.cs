@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    public static event Action<bool> GunFlipped;
+    public static event Action PlayerDied;
 
-    public static void OnGunFlipped(bool flip) {
-        GunFlipped?.Invoke(flip);
+    public static void OnPlayerDied() {
+        PlayerDied?.Invoke();
     }
 }
