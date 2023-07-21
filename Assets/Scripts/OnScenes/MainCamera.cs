@@ -10,7 +10,7 @@ public class MainCamera : MonoBehaviour
         _player = player.GetComponent<Transform>();
     }
 
-    private void FixedUpdate() {
+    private void LateUpdate() {
         if (_player) {
             MovingToPlayer();
         }
