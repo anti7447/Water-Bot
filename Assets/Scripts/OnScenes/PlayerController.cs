@@ -11,18 +11,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
     private float _speedRatio = 0;
-    // private bool _faceRight = true;
-
 
     public GameObject Initialize() {
         return gameObject;
     }
 
-    private void FixedUpdate() {
+    private void Update() {
         MovementPlayer();
         JumpPlayer();
-        // CheckFace();
-        // ChangeFlip();
     }
 
     private void MovementPlayer() {
@@ -33,10 +29,10 @@ public class PlayerController : MonoBehaviour
 
     private void JumpPlayer() {
         _animator.SetBool("Is Ground", _entity.IsGrounded);
-        if (Input.GetAxis("Jump") > 0) {
-            if (_entity.IsGrounded) {
-                _entity.JumpEntity();
-            }
+        if (Input.GetKeyDown(KeyCode.Space)
+            && (_entity.IsGrounded))
+        {
+            _entity.JumpEntity();
         }
     }
 

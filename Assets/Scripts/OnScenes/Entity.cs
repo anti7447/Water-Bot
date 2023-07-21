@@ -74,7 +74,7 @@ public class Entity : MonoBehaviour
         _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    private void OnTriggerStay2D(Collider2D collision) {
         IsGroundedUpate(collision, true);
     }
 
